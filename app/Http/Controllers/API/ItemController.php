@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Item as ResourcesItem;
-use App\item;
+use App\Item;
 use App\User;
 use Illuminate\Http\Request;
 

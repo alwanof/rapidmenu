@@ -76,7 +76,7 @@ class Item extends Resource
                 ->sortable()
                 ->rules('max:72'),
             Text::make(__('Description Main'), 'desc_a'),
-            Text::make(__('Description Alt'), 'desc_a'),
+            Text::make(__('Description Alt'), 'desc_b'),
             Number::make(__('Price'), 'price')
                 ->sortable()
                 ->rules('required', 'min:0'),
