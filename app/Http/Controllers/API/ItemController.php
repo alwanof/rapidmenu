@@ -40,7 +40,7 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\item  $item
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, item $id)
