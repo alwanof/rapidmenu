@@ -1,6 +1,7 @@
 <?php
 
-use App\User;
+use App\Parse\Stream;
+
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,10 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return auth()->user()->settings;
+    $stream = Stream::create([
+        'pid' => 1,
+        'model' => 'Order',
+        'action' => 'C',
+        'meta' => ['hash' => 'foo']
+    ]);
 });
