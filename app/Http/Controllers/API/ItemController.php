@@ -43,15 +43,9 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, item $id)
+    public function show($id)
     {
-        $slug = ($request->input('user')) ? $request->input('user') : null;
-        $user = User::where('slug', '=', $slug)->firstOrFail();
         $item = Item::findOrFail($id);
-        if ($item->user_id != $user->id) {
-            return abort(404);
-        }
-
         $item = new ResourcesItem($item);
         return $item->response()->setStatusCode(200);
     }
