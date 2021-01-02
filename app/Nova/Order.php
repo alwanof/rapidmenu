@@ -86,10 +86,10 @@ class Order extends Resource
                 ]),
             Text::make(__('Name'), 'name')
                 ->rules('required', 'max:255'),
-            Text::make('Name', 'name')
+            /*Text::make('Name', 'name')
                 ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
                     $model->{$attribute} = Str::title($request->input($attribute));
-                }),
+                }),*/
             PhoneNumber::make(__('Phone'), 'phone'),
             Text::make(__('Dist'), 'dist'),
             BelongsTo::make(__('Driver'), 'driver', 'App\Nova\Driver'),
@@ -109,13 +109,6 @@ class Order extends Resource
                 })
                 ->icon()
                 ->blank()
-
-
-
-
-
-
-
         ];
     }
 
