@@ -16,6 +16,7 @@ class Category extends JsonResource
     {
         return [
             'id' => $this->id,
+            'photo' => $this->avatar,
             'mainTitle' => $this->title_a,
             'altTitle' => $this->title_b,
             'featured' => $this->featured

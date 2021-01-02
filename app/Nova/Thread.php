@@ -78,7 +78,7 @@ class Thread extends Resource
             Text::make(__('Title'), 'title')
                 ->sortable()
                 ->rules('required', 'max:72'),
-            Text::make(__('Slug'), 'slug', function () {
+            Text::make(__('Slug'), 'slug')->default(function () {
                 return Str::random(16);
             })
                 ->creationRules('unique:threads,slug')
