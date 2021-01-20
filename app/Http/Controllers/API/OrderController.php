@@ -28,6 +28,7 @@ class OrderController extends Controller
             'total' => 'required',
             'items' => 'required',
         ]);
+        return response('hello_world!', 200);
 
         $rest = User::findOrFail($request->restID);
 
