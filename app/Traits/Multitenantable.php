@@ -21,7 +21,7 @@ trait Multitenantable
                         $model->agent_id = auth()->user()->agent_id;
                     } else {
                         $model->user_id = auth()->user()->id;
-                        $model->agent_id = auth()->user()->parent_id;
+                        $model->parent = auth()->user()->parent_id;
                     }
                 } catch (\Throwable $th) {
                     //throw $th;
@@ -63,7 +63,7 @@ trait Multitenantable
                                     ->orWhere('parent_id', auth()->id())
                                     ->orWhere('id', auth()->id());
                             } else {
-                                $builder->where('agent_id', auth()->id())
+                                $builder->where('parent', auth()->id())
                                     ->orWhere('user_id', auth()->id())
                                     ->orWhere('id', auth()->id());
                             }

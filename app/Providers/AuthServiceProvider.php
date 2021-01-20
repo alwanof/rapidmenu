@@ -29,6 +29,20 @@ class AuthServiceProvider extends ServiceProvider
         collect([
             'viewSetting',
             'manageSetting',
+            'viewUser',
+            'manageUser',
+            'viewDriver',
+            'manageDriver',
+            'viewCategory',
+            'manageCategory',
+            'viewItem',
+            'manageItem',
+            'viewOrder',
+            'manageOrder',
+            'viewPref',
+            'managePref',
+            'viewQR',
+            'manageQR',
         ])->each(function ($permission) {
             Gate::define($permission, function ($user) use ($permission) {
                 return $user->hasRoleWithPermission($permission);

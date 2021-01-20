@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Setting;
+use App\Item;
 use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SettingPolicy
+class ItemPolicy
 {
     use HandlesAuthorization;
 
@@ -19,19 +19,19 @@ class SettingPolicy
      */
     public function viewAny(User $user)
     {
-        return Gate::any(['viewSetting'], $user);
+        return Gate::any(['viewItem'], $user);
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Setting  $setting
+     * @param  \App\Item  $item
      * @return mixed
      */
-    public function view(User $user, Setting $setting)
+    public function view(User $user, Item $item)
     {
-        return Gate::any(['viewSetting', 'manageSetting'], $user, $setting);
+        return Gate::any(['viewItem', 'manageItem'], $user, $item);
     }
 
     /**
@@ -42,54 +42,54 @@ class SettingPolicy
      */
     public function create(User $user)
     {
-        return Gate::any(['manageSetting'], $user);
+        return Gate::any(['manageItem'], $user);
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Setting  $setting
+     * @param  \App\Item  $item
      * @return mixed
      */
-    public function update(User $user, Setting $setting)
+    public function update(User $user, Item $item)
     {
-        return Gate::any(['manageSetting'], $user, $setting);
+        return Gate::any(['manageItem'], $user, $item);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Setting  $setting
+     * @param  \App\Item  $item
      * @return mixed
      */
-    public function delete(User $user, Setting $setting)
+    public function delete(User $user, Item $item)
     {
-        return Gate::any(['manageSetting'], $user, $setting);
+        return Gate::any(['manageItem'], $user, $item);
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Setting  $setting
+     * @param  \App\Item  $item
      * @return mixed
      */
-    public function restore(User $user, Setting $setting)
+    public function restore(User $user, Item $item)
     {
-        return Gate::any(['manageSetting'], $user, $setting);
+        return Gate::any(['manageItem'], $user, $item);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Setting  $setting
+     * @param  \App\Item  $item
      * @return mixed
      */
-    public function forceDelete(User $user, Setting $setting)
+    public function forceDelete(User $user, Item $item)
     {
-        return Gate::any(['manageSetting'], $user, $setting);
+        return Gate::any(['manageItem'], $user, $item);
     }
 }

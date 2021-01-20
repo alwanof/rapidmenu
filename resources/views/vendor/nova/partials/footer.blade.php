@@ -1,7 +1,6 @@
 <p class="mt-8 text-center text-xs text-80">
-    <a href="https://nova.laravel.com" class="text-primary dim no-underline">Laravel Nova</a>
+    <a href="https://whatsappneed.com" class="text-primary dim no-underline">Whatsapp Need</a>
     <span class="px-1">&middot;</span>
-    &copy; {{ date('Y') }} Laravel LLC - By Taylor Otwell, David Hemphill, and Steve Schoger.
-    <span class="px-1">&middot;</span>
-    v{{ \Laravel\Nova\Nova::version() }}
+    &copy; {{ date('Y') }} Whatsapp Need by Totil IT Group. <span class="px-1">&middot;</span>
+    v0.0.1
 </p>
