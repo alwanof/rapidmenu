@@ -29,9 +29,9 @@ class OrderController extends Controller
             'items' => 'required',
         ]);
 
-
+        return response($request->all(), 200);
         $rest = User::findOrFail($request->restID);
-        return response($rest, 200);
+
         $order = new Order();
         $order->slug = Str::random(24);
         $order->name = $request->name;
