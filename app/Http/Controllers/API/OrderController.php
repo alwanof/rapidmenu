@@ -12,6 +12,7 @@ class OrderController extends Controller
 {
     public function save(Request $request)
     {
+        return $request->all();
 
 
         /*$this->validate($request, [
@@ -29,7 +30,7 @@ class OrderController extends Controller
             'items' => 'required',
         ]);*/
 
-        return response($request->all(), 200);
+
         $rest = User::findOrFail($request->restID);
 
         $order = new Order();
