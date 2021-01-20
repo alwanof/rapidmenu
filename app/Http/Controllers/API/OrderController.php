@@ -14,11 +14,11 @@ class OrderController extends Controller
     {
 
 
-        $this->validate($request, [
+        /*$this->validate($request, [
             'restID' => 'required',
             'indoor' => 'required|min:0|max:1',
             'name' => 'required|string',
-            'phone' => 'required|min:8|max:22',
+            'phone' => 'required',
             'address' => 'required',
             'dist' => 'required',
             'aprt' => 'required',
@@ -27,7 +27,7 @@ class OrderController extends Controller
             'lng' => 'required',
             'total' => 'required',
             'items' => 'required',
-        ]);
+        ]);*/
 
         return response($request->all(), 200);
         $rest = User::findOrFail($request->restID);
