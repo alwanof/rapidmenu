@@ -12,10 +12,10 @@ class OrderController extends Controller
 {
     public function save(Request $request)
     {
-        return $request->all();
 
 
-        /*$this->validate($request, [
+
+        $this->validate($request, [
             'restID' => 'required',
             'indoor' => 'required|min:0|max:1',
             'name' => 'required|string',
@@ -28,7 +28,7 @@ class OrderController extends Controller
             'lng' => 'required',
             'total' => 'required',
             'items' => 'required',
-        ]);*/
+        ]);
 
 
         $rest = User::findOrFail($request->restID);
