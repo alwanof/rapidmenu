@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Driver;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\User;
@@ -12,8 +13,6 @@ class OrderController extends Controller
 {
     public function save(Request $request)
     {
-
-
 
         $this->validate($request, [
             'restID' => 'required',
@@ -64,6 +63,28 @@ class OrderController extends Controller
         $msg = "From: $request->name [$request->dist]. %0A I want followig: %0A $orderText %0A $addressText %0A -------- %0A $order->note_a %0A $mapLink";
         //$msg = "from:" . $this->strim($request->name) . "%0A" . $this->strim($request->dist);
         return response($this->strim($msg), 200);
+    }
+
+    public function driverOrder($hash)
+    {
+        $driver = Driver::where('hash', $hash)->firstOrFail();
+        $pendingOrder = Order::where([
+            'driver_id' => $driver->id,
+            'status' => 12
+        ]);
+        if ($pendingOrder->count() > 0) {
+            return $pendingOrder->first();
+        }
+
+        $newOrder = Order::where([
+            'driver_id' => $driver->id,
+            'status' => 1
+        ]);
+        if ($newOrder->count() > 0) {
+            return $newOrder->first();
+        }
+
+        return false;
     }
 
     private function strim($text)

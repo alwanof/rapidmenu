@@ -14,6 +14,7 @@ trait Multitenantable
     {
         if (auth()->check()) {
             static::creating(function ($model) {
+
                 try {
                     $table = $model->getTable();
                     if ($table == 'users') {

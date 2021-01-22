@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Driver;
+use App\Observers\DriverObserver;
+use App\Traits\Multitenantable;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Nova;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Nova::serving(function () {
+            Driver::observe(DriverObserver::class);
+        });
+
+        //Driver::observe(DriverObserver::class);
     }
 }

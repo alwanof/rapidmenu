@@ -2,9 +2,10 @@
 
 namespace App\Parse;
 
-use Illuminate\Database\Eloquent\Model;
+use Parziphal\Parse\Auth\UserModel;
 
-class User extends Model
+
+class User extends UserModel
 {
     //
 }

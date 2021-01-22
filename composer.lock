@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8fb8af821e52bdeb8e0ba22aaf8c3e5",
+    "content-hash": "0135ddd79c80b8dd6993033e563edad6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1417,6 +1417,50 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "inspheric/nova-email-field",
+            "version": "v1.42",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inspheric/nova-email-field.git",
+                "reference": "f1930d05c29cc9008599a9bebf2123f36ecbdfbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inspheric/nova-email-field/zipball/f1930d05c29cc9008599a9bebf2123f36ecbdfbb",
+                "reference": "f1930d05c29cc9008599a9bebf2123f36ecbdfbb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Inspheric\\Fields\\EmailFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Inspheric\\Fields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova email field.",
+            "keywords": [
+                "email",
+                "field",
+                "laravel",
+                "mailto",
+                "nova"
+            ],
+            "time": "2019-06-02T13:22:15+00:00"
         },
         {
             "name": "intervention/image",
