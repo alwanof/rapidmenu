@@ -158,7 +158,7 @@ class OrderController extends Controller
         $order->status = 2;
         $order->save();
 
-        $driver->busy = 2;
+        $driver->status = 2;
         $driver->save();
 
         $response1 = Stream::create([
@@ -175,5 +175,31 @@ class OrderController extends Controller
         ]);
 
         return response(1, 200);
+    }
+
+    public function sendOrderToDriver($hash, $order_id)
+    {
+        $driver = Driver::findOrFail($hash);
+        $order = Order::findOrFail($order_id);
+        $order->status = 1;
+        $order->driver_id = $driver->id;
+        $order->save();
+
+        $driver->status = 1;
+        $driver->save();
+
+        $response1 = Stream::create([
+            'pid' => $order->id,
+            'model' => 'Order',
+            'action' => 'U',
+            'meta' => ['hash' => $driver->hash, 'rest' => $order->user_id, 'agent' => $order->parent, 'action' => 'update']
+        ]);
+        $response2 = Stream::create([
+            'pid' => $driver->id,
+            'model' => 'Driver',
+            'action' => 'U',
+            'meta' => ['hash' => $driver->hash, 'rest' => $driver->user_id, 'agent' => $driver->parent]
+        ]);
+        return $order;
     }
 }

@@ -28,6 +28,7 @@ Route::group(['prefix' => '/v1'], function () {
 
     Route::get('/app/get/order/{hash}', 'API\OrderController@driverOrder');
 
+    Route::get('/order/office/select/{hash}/to/{order_id}', 'API\OrderController@sendOrderToDriver');
     Route::get('/app/approve/{order_id}', 'API\OrderController@approveOrder');
     Route::get('/app/{hash}/reject/{order_id}', 'API\OrderController@rejectOrder');
     Route::get('/app/{hash}/done/{order_id}', 'API\OrderController@completeOrder');

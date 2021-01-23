@@ -74,7 +74,7 @@ class DriverController extends Controller
             ]);
         }
 
-        return response($driver->busy, 200);
+        return response($driver->status, 200);
     }
 
     public function reset($hash)
