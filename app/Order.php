@@ -10,7 +10,7 @@ class Order extends Model
     use Multitenantable;
     // 0 new S D
     // 1 Driver Selected
-    // 12 Order Picked
+    // 12 Order Approved
     // 13 Order reject from driver
     // 2 Order Deliveried
     // 3 canceled from new

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Driver extends Model
 {
+
     use Multitenantable;
 
     public function orders()
