@@ -23,12 +23,6 @@ Route::get('/', function () {
 Route::get('order/{slug}', 'OrderController@index');
 
 Route::get('/test', function () {
-    /*$stream = Stream::create([
-        'pid' => 1,
-        'model' => 'Order',
-        'action' => 'C',
-        'meta' => ['hash' => 'foo']
-    ]);*/
-    $driver = User::findOrFail('CEwS8FLlF4');
-    return $driver;
+
+    return env('APP_URL');
 });

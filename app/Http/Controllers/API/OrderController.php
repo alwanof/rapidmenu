@@ -69,8 +69,8 @@ class OrderController extends Controller
         $dist = ($request->dist != 'N') ? "[$request->dist]" : null;
         $addressText = ($request->indoor == 0) ? "📍 $request->address /B:$request->aprt D:$request->house 🔔 $order->bell" : null;
         $mapLink = ($request->indoor == 0) ? "https://maps.google.com/local?q=$order->lat,$order->lng" : null;
-
-        $msg = $request->name . $dist . '%0A' . $orderText . '%0A' . $addressText . '%0A -------- %0A' . $order->note_a . '%0A' . $mapLink;
+        $orderLink = ($request->indoor == 0) ? env('APP_URL') . '/order/' . $order->slug : null;
+        $msg = $request->name . $dist . '%0A' . $orderText . '%0A' . $addressText . '%0A -------- %0A' . $order->note_a . '%0A' . $orderLink . '%0A%0A' . $orderLink;
 
         return $this->strim($msg);
     }
