@@ -19,7 +19,7 @@ class DriverController extends Controller
         $olng = $rest->settings['coordinate_lng'];
 
         //$distance = cooDistance($olat, $olng, $lat, $lng);
-        $distance = 1.2;
+        $distance = 1;
 
         $driver->lat = $lat;
         $driver->lng = $lng;
@@ -34,7 +34,7 @@ class DriverController extends Controller
         ]);
 
         return [
-            'location' => $olat . ' <> ' . $olng,
+            'location' => $driver->lat . ' <> ' . $driver->lng,
             'distance' => $distance
         ];
     }
