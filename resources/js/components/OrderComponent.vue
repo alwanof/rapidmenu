@@ -25,7 +25,7 @@
                                 <td>
                                     <img :src="'/storage/'+feed.driver.avatar" :alt="feed.driver.name" class="rounded-circle" height="72">
                                 </td>
-                                <td>
+                                <td class="px-2">
                                    {{feed.driver.name}}<br>
                                    {{feed.driver.phone}}
                                 </td>
