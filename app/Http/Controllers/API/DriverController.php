@@ -92,4 +92,23 @@ class DriverController extends Controller
 
         return response($driver->status, 200);
     }
+
+    public function userDrivers($user_id)
+    {
+        $rest = User::findOrFail($user_id);
+        if ($rest->level == 2) {
+            return Driver::where('user_id', $rest->id)->where('status', 2)->get();
+        }
+
+        return [];
+    }
+
+    public function driverFetch($driver_id)
+    {
+        $driver = Driver::findOrFail($driver_id);
+        if (is_object($driver)) {
+            return $driver;
+        }
+        return false;
+    }
 }

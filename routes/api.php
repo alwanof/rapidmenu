@@ -28,15 +28,17 @@ Route::group(['prefix' => '/v1'], function () {
 
     Route::get('/app/get/order/{hash}', 'API\OrderController@driverOrder');
 
-    Route::get('/order/office/select/{hash}/to/{order_id}', 'API\OrderController@sendOrderToDriver');
+    Route::get('/order/rest/select/{hash}/to/{order_id}', 'API\OrderController@sendOrderToDriver');
     Route::get('/app/approve/{order_id}', 'API\OrderController@approveOrder');
     Route::get('/app/{hash}/reject/{order_id}', 'API\OrderController@rejectOrder');
     Route::get('/app/{hash}/done/{order_id}', 'API\OrderController@completeOrder');
+    Route::get('/order/get/{order_id}', 'API\OrderController@show');
 
     Route::get('/app/{hash}/tracking/{lat}/{lng}', 'API\DriverController@track');
-
     Route::get('/app/{hash}/check/active', 'API\DriverController@checkActive');
     Route::get('/app/{hash}/get/driver', 'API\DriverController@getDriver');
     Route::get('/app/{hash}/toggle', 'API\DriverController@toggle');
     Route::get('/app/{hash}/reset', 'API\DriverController@reset');
+    Route::get('/app/{user_id}/drivers', 'API\DriverController@userDrivers');
+    Route::get('fetch/driver/{driver_id}', 'API\DriverController@driverFetch');
 });

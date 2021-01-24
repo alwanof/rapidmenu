@@ -180,7 +180,9 @@ class OrderController extends Controller
     public function sendOrderToDriver($hash, $order_id)
     {
         $driver = Driver::findOrFail($hash);
+
         $order = Order::findOrFail($order_id);
+
         $order->status = 1;
         $order->driver_id = $driver->id;
         $order->save();
@@ -201,5 +203,11 @@ class OrderController extends Controller
             'meta' => ['hash' => $driver->hash, 'rest' => $driver->user_id, 'agent' => $driver->parent]
         ]);
         return $order;
+    }
+
+    public function show($order_id)
+    {
+        return
+            Order::findOrFail($order_id);
     }
 }

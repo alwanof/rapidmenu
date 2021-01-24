@@ -7,7 +7,14 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+import * as VueGoogleMaps from "vue2-google-maps";
+window.Vue = require('vue');
+Vue.use(VueGoogleMaps, {
+        load: {
+            key: "AIzaSyANYVpeOpsNN4DqdKR4AKAyd03IQ3_9PvU",
+            libraries: "places,directions"
+        }
+    });
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,6 +27,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('order-component', require('./components/OrderComponent.vue').default);
+Vue.component('tracking-map', require('./components/TrackingComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
