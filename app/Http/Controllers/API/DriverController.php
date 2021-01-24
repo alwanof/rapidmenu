@@ -23,7 +23,7 @@ class DriverController extends Controller
 
         $driver->lat = $lat;
         $driver->lng = $lng;
-        $driver->distance = $distance;
+        $driver->distanc = $distance;
         $driver->save();
 
         $response1 = Stream::create([
