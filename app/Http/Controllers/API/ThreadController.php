@@ -19,10 +19,14 @@ class ThreadController extends Controller
     public function index($qr)
     {
 
+
         $qrThread = Thread::where('slug', $qr)->firstOrFail();
+
         $restaurant = User::findOrFail($qrThread->user_id);
+
         $thread = new ResourcesThread($qrThread);
-        $data = ['qrcode' => $thread, 'restaurant' => new ResourcesUser($restaurant)];
+
+        $data = ['qrcode' => $thread, 'restaurant' => new ResourcesUser($restaurant)];;
         return response($data, 200);
     }
 
