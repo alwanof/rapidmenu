@@ -21,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('order/{slug}', 'OrderController@index');
+Route::get('clear/test', 'TestController@go');
 
 Route::get('/test', function () {
 
