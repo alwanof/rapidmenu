@@ -68,7 +68,7 @@ class Thread extends Resource
         $slug = ($this->user) ? $this->user->slug : 'noslug';
         return [
             Qrcode::make('QR CODE' . '/' . $slug)
-                ->text(env('APP_URL'))
+                ->text(env('APP_URL') . '/front/?code=' . $this->slug)
                 ->indexSize(48)
                 ->detailSize(500)
                 ->hideWhenCreating()
