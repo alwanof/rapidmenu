@@ -42,7 +42,7 @@ class SetPreference extends Action
                 $feed->value = $fields->value;
                 $feed->save();
             } else {
-                Preference::create(['key' => $model->key, 'value' => $fields->value, 'agent_id' => auth()->user()->agent_id]);
+                Preference::create(['key' => $model->key, 'value' => $fields->value, 'parent' => auth()->user()->agent_id]);
             }
         }
     }

@@ -22,7 +22,7 @@ class Order extends Model
     //Customer: 3 => Y/N option
     //Done 9=> done | 91=> RO | 92=>RC | 93=>NoRO | 94=>NoRC 99=>CC
 
-    // cd /home/whatsappneed.com/public_html
+    // cd /home/whatsappneed.com/admin
     //rm -rf storage
 
     public function driver()

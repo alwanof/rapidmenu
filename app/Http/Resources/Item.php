@@ -17,6 +17,7 @@ class Item extends JsonResource
         return [
             'id' => $this->id,
             'photo' => $this->avatar,
+            'gallery' => [],
             'mainTitle' => $this->title_a,
             'altTitle' => $this->title_b,
             'mainDescription' => $this->desc_a,

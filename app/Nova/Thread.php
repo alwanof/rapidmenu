@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Str;
+use Khalin\Nova\Field\Link;
 
 class Thread extends Resource
 {
@@ -68,15 +69,21 @@ class Thread extends Resource
         $slug = ($this->user) ? $this->user->slug : 'noslug';
         return [
             Qrcode::make('QR CODE' . '/' . $slug)
-                ->text(env('APP_URL') . '/front/?code=' . $this->slug)
+                ->text(env('BASE_URL') . '/?code=' . $this->slug)
                 ->indexSize(48)
                 ->detailSize(500)
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
 
             ID::make(__('ID'), 'id')->sortable(),
+            Link::make(__('Title'), 'title')
+                ->url(function () {
+                    return env('BASE_URL') . '/?code=' . $this->slug;
+                })
+                ->onlyOnDetail(),
             Text::make(__('Title'), 'title')
                 ->sortable()
+                ->onlyOnForms()
                 ->rules('required', 'max:72'),
             Text::make(__('Slug'), 'slug')->default(function () {
                 return Str::random(16);

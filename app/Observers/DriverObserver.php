@@ -16,12 +16,7 @@ class DriverObserver
      */
     public function created(Driver $driver)
     {
-        /*$user = new User();
-        $user->useMasterKey(true);
-        $user->name = $driver->name;
-        $user->username = $driver->email;
-        $user->password = $driver->password;
-        $user->signUp();*/
+        
         $user = User::create(['username' => $driver->email, 'password' => $driver->password, 'name' => $driver->name]);
         if (isset($user->username)) {
             $driver->hash = $user->id;
