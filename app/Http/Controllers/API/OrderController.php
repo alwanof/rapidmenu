@@ -32,12 +32,17 @@ class OrderController extends Controller
 
 
         $rest = User::findOrFail($request->restID);
-
+        $phoneNumber = $request->phone;
+        $phoneNumber = str_replace(" ", "", $phoneNumber);
+        $phoneNumber = str_replace("(", "", $phoneNumber);
+        $phoneNumber = str_replace(")", "", $phoneNumber);
+        $phoneNumber = str_replace("-", "", $phoneNumber);
+        $phoneNumber = '90' . $phoneNumber;
         $order = new Order();
         $order->slug = Str::random(24);
         $order->name = $request->name;
         $order->email = $request->email ?? null;
-        $order->phone = $request->phone;
+        $order->phone = $phoneNumber;
         $order->address = $request->address;
         $order->dist = $request->dist;
         $order->aprt = $request->aprt;

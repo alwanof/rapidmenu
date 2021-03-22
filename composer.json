@@ -17,6 +17,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "inspheric/nova-email-field": "^1.42",
+        "ipinfo/ipinfolaravel": "^2.1",
         "khalin/nova-link-field": "^1.2",
         "kristories/nova-qrcode-field": "^0.0.2",
         "laravel/framework": "^7.29",
