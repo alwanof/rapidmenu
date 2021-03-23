@@ -75,8 +75,8 @@ class Item extends Resource
             Text::make(__('Title Alt'), 'title_b')
                 ->sortable()
                 ->rules('max:72'),
-            Text::make(__('Description Main'), 'desc_a'),
-            Text::make(__('Description Alt'), 'desc_b'),
+            Text::make(__('Description Main'), 'desc_a')->hideFromIndex(),
+            Text::make(__('Description Alt'), 'desc_b')->hideFromIndex(),
             Number::make(__('Price'), 'price')
                 ->sortable()
                 ->rules('required', 'min:0'),
