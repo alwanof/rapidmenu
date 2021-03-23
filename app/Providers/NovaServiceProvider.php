@@ -2,7 +2,14 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\OrderCount;
+use App\Nova\Metrics\OrderTrend;
+use App\Nova\Metrics\DriverPartition;
+use App\Nova\Metrics\CategoryCount;
+use App\Nova\Metrics\ItemCount;
+use App\Nova\Metrics\ThreadPartition;
 use Digitalcloud\MultilingualNova\NovaLanguageTool;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -57,9 +64,42 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function cards()
     {
-        return [
-            new Help,
-        ];
+        $metrics = [];
+        $level = Auth::user()->level;
+        switch ($level) {
+            case 0:
+                $metrics = [
+                    //(new DriversMap)->withMeta(['PARSE' => $parseKeys])->authUser(),
+                    new OrderCount(),
+                    new OrderTrend(),
+                    new DriverPartition(),
+                    (new CategoryCount())->defaultRange(9999),
+                    (new ItemCount())->defaultRange(9999),
+                    new ThreadPartition(),
+                ];
+                break;
+            case 1:
+                $metrics = [
+                    new OrderCount(),
+                    new OrderTrend(),
+                    new DriverPartition(),
+                    (new CategoryCount())->defaultRange(9999),
+                    (new ItemCount())->defaultRange(9999),
+                    new ThreadPartition(),
+                ];
+                break;
+            case 2:
+                $metrics = [
+                    new OrderCount(),
+                    new OrderTrend(),
+                    new DriverPartition(),
+                    (new CategoryCount())->defaultRange(9999),
+                    (new ItemCount())->defaultRange(9999),
+                    new ThreadPartition(),
+                ];
+                break;
+        }
+        return $metrics;
     }
 
     /**

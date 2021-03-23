@@ -37,7 +37,10 @@ class OrderController extends Controller
         $phoneNumber = str_replace("(", "", $phoneNumber);
         $phoneNumber = str_replace(")", "", $phoneNumber);
         $phoneNumber = str_replace("-", "", $phoneNumber);
+        //$phoneKey = $rest->settings['phone_code'];
+        //$phoneNumber = $phoneKey . $phoneNumber;
         $phoneNumber = '90' . $phoneNumber;
+
         $order = new Order();
         $order->slug = Str::random(24);
         $order->name = $request->name;

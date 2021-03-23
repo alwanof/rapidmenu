@@ -1,0 +1,18 @@
+### Rewrite Rules Added by CyberPanel Rewrite Rule Generator
+
+RewriteEngine On
+RewriteCond %{HTTPS}  !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+
+### End CyberPanel Generated Rules.
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^front
+#RewriteRule ^/?public/front/(.*)$ http://react_app/$1 [P,L]
+RewriteRule ^/?front/(.*)$ http://react_app/front$1 [P,L]
+
+RewriteEngine on
+#RewriteRule ^/?api/(.*)$ https://%{SERVER_NAME}/public/$1 [P,L]
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]
+
