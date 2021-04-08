@@ -473,7 +473,14 @@
   "Bell":"Bell",
   "Total":"Total",
   "location":"location",
-  "Google Map":"Google Map"
+  "Google Map":"Google Map",
+  "Image1": "Image1",
+  "Image2": "Image3",
+  "Image3": "Image3",
+  "Image4": "Image4",
+  "Sliders": "Sliders",
+  "Slider":"Slider",
+  "Image": "Image"
 
 
 

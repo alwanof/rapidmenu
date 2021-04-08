@@ -1,5 +1,6 @@
 <?php
 
+use App\Item;
 use App\Parse\Stream;
 use App\Parse\User;
 use Illuminate\Support\Facades\Config;
@@ -25,5 +26,5 @@ Route::get('clear/test', 'TestController@go');
 
 Route::get('/test', function () {
 
-    return env('APP_URL');
+    return Item::find(17);
 });

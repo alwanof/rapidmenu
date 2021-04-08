@@ -6,12 +6,11 @@ use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Category extends Resource
+class Slider extends Resource
 {
     /**
      * Get the displayable label of the resource.
@@ -20,7 +19,7 @@ class Category extends Resource
      */
     public static function label()
     {
-        return __('Categories');
+        return __('Sliders');
     }
 
     /**
@@ -30,21 +29,21 @@ class Category extends Resource
      */
     public static function singularLabel()
     {
-        return __('Category');
+        return __('Slider');
     }
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Category::class;
+    public static $model = \App\Slider::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title_a';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -52,8 +51,7 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'title_a',
-        'title_b'
+        'title',
     ];
 
     /**
@@ -66,19 +64,14 @@ class Category extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Avatar::make(__('Avatar'), 'avatar')->onlyOnIndex(),
-            AdvancedImage::make(__('Avatar'), 'avatar')->croppable(16 / 9)->resize(320)->disk('public')->path('cats')->onlyOnForms(),
-            Text::make(__('Title Main'), 'title_a')
+            Avatar::make(__('Image'), 'image'),
+            AdvancedImage::make(__('Image'), 'image')->croppable(5 / 1)->resize(560)->disk('public')->path('sliders')->rules('required')->onlyOnForms(),
+            Text::make(__('Title'), 'title')
+                ->rules('required'),
+            Text::make(__('Description'), 'description')->hideFromIndex(),
+            Boolean::make(__('Available'), "available")
                 ->sortable()
-                ->rules('required', 'max:72'),
-            Text::make(__('Title Alt'), 'title_b')
-                ->sortable()
-                ->rules('max:72'),
-            Boolean::make(__('Featured'), "featured")
-                ->sortable()
-                ->default(0),
-            HasMany::make(__("Items"), "items")
-
+                ->withMeta(["value" => 1]),
         ];
     }
 

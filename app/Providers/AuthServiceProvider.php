@@ -43,6 +43,8 @@ class AuthServiceProvider extends ServiceProvider
             'managePref',
             'viewQR',
             'manageQR',
+            'viewSlider',
+            'manageSlider',
         ])->each(function ($permission) {
             Gate::define($permission, function ($user) use ($permission) {
                 return $user->hasRoleWithPermission($permission);

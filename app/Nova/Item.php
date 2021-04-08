@@ -68,7 +68,7 @@ class Item extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Avatar::make(__('Avatar'), 'avatar')->onlyOnIndex(),
-            AdvancedImage::make(__('Avatar'), 'avatar')->croppable(16 / 9)->resize(320)->disk('public')->path('items')->hideFromIndex(),
+            AdvancedImage::make(__('Avatar'), 'avatar')->croppable(16 / 9)->resize(320)->disk('public')->path('items')->onlyOnForms(),
             Text::make(__('Title Main'), 'title_a')
                 ->sortable()
                 ->rules('required', 'max:72'),
@@ -80,10 +80,23 @@ class Item extends Resource
             Number::make(__('Price'), 'price')
                 ->sortable()
                 ->rules('required', 'min:0'),
+
             Boolean::make(__('Available'), "available")
                 ->sortable()
                 ->withMeta(["value" => 1]),
-            BelongsTo::make(__("Category"), "category")
+            BelongsTo::make(__("Category"), "category"),
+            Avatar::make(__('Image1'), 'image1')->onlyOnDetail(),
+            AdvancedImage::make(__('Image1'), 'image1')->croppable(16 / 9)->resize(800)->disk('public')->path('item_image_1')->onlyOnForms(),
+
+            Avatar::make(__('Image2'), 'image2')->onlyOnDetail(),
+            AdvancedImage::make(__('Image2'), 'image2')->croppable(16 / 9)->resize(800)->disk('public')->path('item_image_2')->onlyOnForms(),
+
+            Avatar::make(__('Image3'), 'image3')->onlyOnDetail(),
+            AdvancedImage::make(__('Image3'), 'image3')->croppable(16 / 9)->resize(800)->disk('public')->path('item_image_2')->onlyOnForms(),
+
+            Avatar::make(__('Image4'), 'image4')->onlyOnDetail(),
+            AdvancedImage::make(__('Image4'), 'image4')->croppable(16 / 9)->resize(800)->disk('public')->path('item_image_2')->onlyOnForms(),
+
         ];
     }
 

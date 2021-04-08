@@ -25,6 +25,7 @@ Route::group(['prefix' => '/v1'], function () {
     Route::get('item/search', 'API\ItemController@search');
     Route::get('qrcode/{qr}', 'API\ThreadController@index');
     Route::post('order/create', 'API\OrderController@save');
+    Route::get('sliders', 'API\SliderController@index');
 
     Route::get('/app/get/order/{hash}', 'API\OrderController@driverOrder');
 
