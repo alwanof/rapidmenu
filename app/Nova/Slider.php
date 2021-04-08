@@ -64,7 +64,7 @@ class Slider extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Avatar::make(__('Image'), 'image'),
+            Avatar::make(__('Image'), 'image')->onlyOnIndex(),
             AdvancedImage::make(__('Image'), 'image')->croppable(5 / 1)->resize(560)->disk('public')->path('sliders')->rules('required')->onlyOnForms(),
             Text::make(__('Title'), 'title')
                 ->rules('required'),
