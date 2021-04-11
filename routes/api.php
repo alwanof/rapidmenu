@@ -23,7 +23,7 @@ Route::group(['prefix' => '/v1'], function () {
     Route::get('items', 'API\ItemController@index');
     Route::get('items/{id}', 'API\ItemController@show');
     Route::get('item/search', 'API\ItemController@search');
-    Route::get('qrcode/{qr}', 'API\ThreadController@index');
+    Route::get('qrcode/{qr?}', 'API\ThreadController@index');
     Route::post('order/create', 'API\OrderController@save');
     Route::get('sliders', 'API\SliderController@index');
 

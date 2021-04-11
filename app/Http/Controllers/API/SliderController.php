@@ -23,7 +23,10 @@ class SliderController extends Controller
 
         $limit = ($request->input('limit') && $request->input('limit') <= 100) ? $request->input('limit') : 12;
 
-        $slider = Slider::where('user_id', $user->id);
+        $slider = Slider::where([
+            'user_id' => $user->id,
+            'available' => 1
+        ]);
 
         $sliders = SliderResource::collection($slider->paginate($limit));
         return $sliders->response()->setStatusCode(200);

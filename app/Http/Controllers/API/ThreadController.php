@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Thread as ResourcesThread;
 use App\Http\Resources\User as ResourcesUser;
+use App\Setting;
 use App\Thread;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,8 +17,13 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($qr)
+    public function index($qr = 0)
     {
+
+        if ($qr == 0) {
+            $code = Setting::where('key', 'default_store')->firstOrFail();
+            $qr = $code->value;
+        }
 
 
         $qrThread = Thread::where('slug', $qr)->firstOrFail();
