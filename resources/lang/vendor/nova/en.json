@@ -480,7 +480,14 @@
   "Image4": "Image4",
   "Sliders": "Sliders",
   "Slider":"Slider",
-  "Image": "Image"
+  "Image": "Image",
+  "Caption Main":"Caption Main",
+  "Caption Alt": "Caption Alt",
+  "Cover": "Cover",
+  "Pages": "Pages",
+  "Page": "Page",
+  "Nav":"Show In Navbar"
+
 
 
 

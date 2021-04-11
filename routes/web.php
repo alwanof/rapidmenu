@@ -1,9 +1,7 @@
 <?php
 
-use App\Item;
-use App\Parse\Stream;
-use App\Parse\User;
-use Illuminate\Support\Facades\Config;
+
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +23,7 @@ Route::get('order/{slug}', 'OrderController@index');
 Route::get('clear/test', 'TestController@go');
 
 Route::get('/test', function () {
-    $rest = User::find(1);
-    //$rest->settings;
-    return User::find(1);
+    $rest = User::findOrFail(12);
+
+    return $rest->settings['whatsapp_off'];
 });
