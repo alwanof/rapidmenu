@@ -11,6 +11,7 @@ use App\Nova\Metrics\ThreadPartition;
 use Digitalcloud\MultilingualNova\NovaLanguageTool;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;

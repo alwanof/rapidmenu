@@ -25,6 +25,7 @@ Route::get('order/{slug}', 'OrderController@index');
 Route::get('clear/test', 'TestController@go');
 
 Route::get('/test', function () {
-
-    return Item::find(17);
+    $rest = User::find(1);
+    //$rest->settings;
+    return User::find(1);
 });

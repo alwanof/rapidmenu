@@ -60,6 +60,9 @@ class OrderController extends Controller
         $order->parent = $rest->parent_id;
 
         $order->save();
+        if ($rest->settings['whatsapp_off'] == 1) {
+            return response(__('core.thanks_msg'), 200);
+        }
 
 
         return response($this->waMsg($request, $order), 200);
