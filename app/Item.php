@@ -17,11 +17,13 @@ class Item extends Model
 
     public function getGalleryAttribute()
     {
-        return [
-            $this->image1,
-            $this->image2,
-            $this->image3,
-            $this->image4,
-        ];
+        $res = [];
+        for ($i = 1; $i < 5; $i++) {
+            $prop = 'image' . $i;
+            if ($this->$prop) {
+                $res[] =  $this->$prop;
+            }
+        }
+        return $res;
     }
 }
