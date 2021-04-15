@@ -17,10 +17,10 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($qr = 0)
+    public function index($qr = 'N')
     {
 
-        if ($qr == 0) {
+        if (!$qr == 'N') {
             $code = Setting::where('key', 'default_store')->firstOrFail();
             $qr = $code->value;
         }
