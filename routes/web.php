@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    redirect(url('/control/login'));
+    return view('home');
 });
 
 Route::get('order/{slug}', 'OrderController@index');
