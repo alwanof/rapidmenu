@@ -20,7 +20,7 @@ class ThreadController extends Controller
     public function index($qr = 'N')
     {
 
-        if (!$qr == 'N') {
+        if ($qr == 'N') {
             $code = Setting::where('key', 'default_store')->firstOrFail();
             $qr = $code->value;
         }
