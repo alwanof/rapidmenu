@@ -10,24 +10,24 @@ $lang = app()->getLocale();
     <title>{{ config('app.name', 'Project0') }} - @yield('title')</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/img/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('layout/img/favicon.png') }}" />
     <!-- Place favicon.ico in the root directory -->
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="{{ asset('front/css/bootstrap-5.0.0-alpha-2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('layout/css/bootstrap-5.0.0-alpha-2.min.css') }}" />
     @if ($lang == 'ar')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.rtl.min.css"
             integrity="sha384-trxYGD5BY4TyBTvU5H23FalSCYwpLA0vWEvXXGm5eytyztxb+97WzzY+IWDOSbav" crossorigin="anonymous">
 
     @endif
-    <link rel="stylesheet" href="{{ asset('front/css/LineIcons.2.0.css') }}" />
-    <link rel="stylesheet" href="{{ asset('front/css/tiny-slider.css') }}" />
-    <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ asset('layout/css/LineIcons.2.0.css') }}" />
+    <link rel="stylesheet" href="{{ asset('layout/css/tiny-slider.css') }}" />
+    <link rel="stylesheet" href="{{ asset('layout/css/animate.css') }}" />
     @if ($lang == 'ar')
-        <link rel="stylesheet" href="{{ asset('front/css/main-rtl.css') }}" />
+        <link rel="stylesheet" href="{{ asset('layout/css/main-rtl.css') }}" />
 
     @else
-        <link rel="stylesheet" href="{{ asset('front/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('layout/css/main.css') }}" />
     @endif
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -71,7 +71,7 @@ $lang = app()->getLocale();
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="index.html">
-                                <img src="{{ asset('front/img/logo/logo.png') }}" alt="Logo" />
+                                <img src="{{ asset('layout/img/logo/logo.png') }}" alt="Logo" />
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -141,7 +141,7 @@ $lang = app()->getLocale();
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="footer-widget">
                             <div class="logo mb-30">
-                                <a href="index.html"> <img src="front/img/logo/logo.png" height="44" alt=""> </a>
+                                <a href="index.html"> <img src="layout/img/logo/logo.png" height="44" alt=""> </a>
                             </div>
                             <p class="desc mb-30 text-white">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                                 sed dinonumy eirmod tempor invidunt.</p>
@@ -211,10 +211,10 @@ $lang = app()->getLocale();
     </a>
 
     <!-- ========================= JS here ========================= -->
-    <script src="{{ asset('front/js/bootstrap.5.0.0.alpha-2-min.js') }}"></script>
-    <script src="{{ asset('front/js/tiny-slider.js') }}"></script>
-    <script src="{{ asset('front/js/wow.min.js') }}"></script>
-    <script src="{{ asset('front/js/main.js') }}"></script>
+    <script src="{{ asset('layout/js/bootstrap.5.0.0.alpha-2-min.js') }}"></script>
+    <script src="{{ asset('layout/js/tiny-slider.js') }}"></script>
+    <script src="{{ asset('layout/js/wow.min.js') }}"></script>
+    <script src="{{ asset('layout/js/main.js') }}"></script>
 </body>
 
 </html>

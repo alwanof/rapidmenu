@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-                        <img src="{{ asset('front/img/hero/hero-img.png') }}" alt="">
+                        <img src="{{ asset('layout/img/hero/hero-img.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -76,13 +76,13 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-img">
-                        <img src="front/img/about/about-1.png" alt="" class="w-100">
+                        <img src="layout/img/about/about-1.png" alt="" class="w-100">
                         <!-- PHP PHP PHP -->
 
-                        <img src="front/img/about/about-left-shape{{ $lang == 'ar' ? '-rtl' : '' }}.svg" alt=""
+                        <img src="layout/img/about/about-left-shape{{ $lang == 'ar' ? '-rtl' : '' }}.svg" alt=""
                             class="shape shape-1">
 
-                        <img src="front/img/about/{{ $lang == 'ar' ? 'right' : 'left' }}-dots.svg" alt=""
+                        <img src="layout/img/about/{{ $lang == 'ar' ? 'right' : 'left' }}-dots.svg" alt=""
                             class="shape shape-2">
                     </div>
                 </div>
@@ -118,10 +118,10 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 order-first order-lg-last">
                     <div class="about-img-2">
-                        <img src="front/img/about/about-2.png" alt="" class="w-100">
-                        <img src="front/img/about/about-right-shape{{ $lang == 'ar' ? '-rtl' : '' }}.svg" alt=""
+                        <img src="layout/img/about/about-2.png" alt="" class="w-100">
+                        <img src="layout/img/about/about-right-shape{{ $lang == 'ar' ? '-rtl' : '' }}.svg" alt=""
                             class="shape shape-1">
-                        <img src="front/img/about/{{ $lang == 'ar' ? 'left' : 'right' }}-dots.svg" alt=""
+                        <img src="layout/img/about/{{ $lang == 'ar' ? 'left' : 'right' }}-dots.svg" alt=""
                             class="shape shape-2">
                     </div>
                 </div>
