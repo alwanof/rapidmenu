@@ -5,6 +5,7 @@ namespace App\Nova;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -77,7 +78,8 @@ class Category extends Resource
             Boolean::make(__('Featured'), "featured")
                 ->sortable()
                 ->default(0),
-            HasMany::make(__("Items"), "items")
+            BelongsToMany::make(__("Items"), "items"),
+
 
         ];
     }

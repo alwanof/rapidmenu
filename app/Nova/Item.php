@@ -2,10 +2,12 @@
 
 namespace App\Nova;
 
+use Benjacho\BelongsToManyField\BelongsToManyField;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -84,7 +86,12 @@ class Item extends Resource
             Boolean::make(__('Available'), "available")
                 ->sortable()
                 ->withMeta(["value" => 1]),
-            BelongsTo::make(__("Category"), "category"),
+            Text::make(__("Category"), function () {
+                return implode(', ', $this->categories()->pluck('title_a')->toArray());
+            })->onlyOnIndex(),
+            BelongsToMany::make(__("Category"), "categories"),
+            BelongsToManyField::make(__("Category"), "categories", "App\Nova\Category")->onlyOnForms(),
+
             Avatar::make(__('Image1'), 'image1')->onlyOnDetail(),
             AdvancedImage::make(__('Image1'), 'image1')->croppable(16 / 9)->resize(800)->disk('public')->path('item_image_1')->onlyOnForms(),
 

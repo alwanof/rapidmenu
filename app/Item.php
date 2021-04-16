@@ -10,9 +10,9 @@ class Item extends Model
     use Multitenantable;
     protected $appends = ['gallery'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class, 'category_item');
     }
 
     public function getGalleryAttribute()

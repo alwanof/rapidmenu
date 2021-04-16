@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Item;
 use App\User;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Route::get('order/{slug}', 'OrderController@index');
 Route::get('clear/test', 'TestController@go');
 
 Route::get('/test', function () {
-    $rest = User::findOrFail(12);
+    $item = Item::findOrFail(17);
 
-    return $rest->settings['whatsapp_off'];
+    return implode(', ', $item->categories()->pluck('title_a')->toArray());
 });
