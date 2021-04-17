@@ -1,0 +1,1 @@
+{"ast":null,"code":"/************ CONSTANTS ***********/\nvar CURRENCY = \"\";\n\nfunction setCURRENCY(value) {\n  CURRENCY = value;\n}\n\nvar CONFIG = {};\n\nfunction setCONFIG(value) {\n  CONFIG = value;\n}\n\nexport { setCURRENCY, CURRENCY, setCONFIG, CONFIG };","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export async function getConfig(code) {\n  return await fetch(`${process.env.NEXT_PUBLIC_REST_API_ENDPOINT}/qrcode/${code}`).then(res => res.json());\n}","map":null,"metadata":{},"sourceType":"module"}

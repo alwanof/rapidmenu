@@ -84,7 +84,7 @@ class User extends Authenticatable
 
             $parentConfig = Preference::withoutGlobalScope('ref')->where([
                 'key' => $setting->key,
-                'parent' => $this->parent
+                'parent' => $this->parent_id
             ])->get();
             if ($parentConfig->count() > 0) {
 
